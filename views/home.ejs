@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  -->
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+
+<body>
+    <div id="main_body">
+        <h1>TODO APP</h1>
+
+        <form action="/create-todo" method="post">
+            <div class="description">
+                <label for="description">Description</label>
+                <input id="description" type="text" name="description" placeholder="eg: go to gym" required>
+            </div>
+
+            <div class="sub_description">
+
+                <div class="description-category">
+
+                    <label for="category">Category</label>
+                    <select name="category" id="category">
+                        <option value="personal">personal</option>
+                        <option value="work">work</option>
+                        <option value="school">school</option>
+                        <option value="cleaning">cleaning</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+
+                <div class="description-date">
+
+                    <label for="date">due date</label>
+                    <input type="date" name="date" id="date">
+                </div>
+            </div>
+
+
+            <button type="submit">add</button>
+
+        </form>
+
+        <form action="/delete_task" method="get">
+
+            <!-- <a href="/delete_task/?id=<%= 4654 %>"> -->
+                <button type="submit">delete</button>
+            <!-- </a> -->
+
+
+            <div>
+
+                <% for(let i of todo_data){ %>
+                    <ul>
+                        <li>
+                            <div class="todo_list" id="<%= i._id %>">
+
+                                <input id="<%= i._id %>" class="checkset" type="checkbox" name="<%= i._id %>">
+
+                                <div class="description_date">
+
+                                    <label for="<%= i._id %> ">
+                                        <%= i.description %>
+                                    </label>
+
+                                    <label class="block" for="<%= i._id %>">
+                                        <%= i.date %>
+                                    </label>
+                                </div>
+                                <%= i.category %>
+
+                            </div>
+                        </li>
+                    </ul>
+                <% } %>
+            </div>
+
+        </form>
+    </div>
+
+
+    <script src="/js/home.js"></script>
+</body>
+
+</html>
