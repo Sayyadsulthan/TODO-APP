@@ -34,7 +34,11 @@ module.exports.home = async function (req, res) {
 module.exports.todo = function(req, res){
 
     console.log("fetch data",req.body);
-    // db.push(req.body);
+
+    if(req.body.date=== ''){
+        req.body.date= "NO DEADLINE";
+    }
+
     todolist.create({
         description: req.body.description,
         date: req.body.date,
@@ -56,30 +60,20 @@ module.exports.deleteTodo = function(req, res){
 
     console.log(req.query);
     let obj= req.query;
-    // let id=[];
-    // let j=0;
+
     for(i in obj){
         console.log(i);
-        // id.push=i;
         deleteitems(i); 
     }
     
-    // console.log(id);
-    // for (let iterator of id) {
-    //         console.log(iterator);
-    //         deleteitems(iterator);
-    // }
-
     function deleteitems(_id){
         todolist.findByIdAndDelete(_id)
         .then((data)=>{  console.log('deleted todo_list successfully:', data);})
         .catch((err)=>{
-             console.log(`cannot delete, ${err}`);
-            
+             console.log(`cannot delete, ${err}`); 
         });
     }
     setTimeout(function(){
-
         return res.redirect('back');
     },1000);
 }
