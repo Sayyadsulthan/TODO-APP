@@ -11,8 +11,7 @@
 //     }
 
 // ]
-const db= require('../model/mongoose');
-const todolist= require('../controllers/todo_controller');
+const todolist= require('../model/todo');
 
 module.exports.home = async function (req, res) {
 
