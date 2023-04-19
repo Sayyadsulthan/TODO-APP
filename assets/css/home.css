@@ -98,6 +98,10 @@ form{
     flex-direction: column;
     width: 60%;
 }
+.calender_date{
+    font-size: small;
+    margin-top: 3px;
+}
 
 .tasks-section ul{
     /* width: 100%; */
