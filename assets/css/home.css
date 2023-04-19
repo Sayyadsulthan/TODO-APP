@@ -29,10 +29,7 @@ body{
     border-left: none;
     border-right: none;
 }
-.description:hover, .description input:hover{
-    background-color: antiquewhite;
-    opacity: 0.6;
-}
+
 .sub_description{
     display: flex;
     border-bottom: 1px solid black;
@@ -41,8 +38,27 @@ body{
 button{
     height: 30px;
     width: 120px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: all 0.5s ease-in-out ;
 }
 
+button:hover{
+    transform: scale(1.2);
+}
+.delete_btn{
+    background-color: darkgrey;
+}
+.delete_btn:hover{
+    background-color: crimson;
+}
+.add_btn{
+    background-color: thistle;
+}
+.add_btn:hover{
+    background-color: chartreuse;
+}
 input, select{
     /* display: block; */
     border: none;

@@ -1,11 +1,4 @@
-
-// module.exports.todo = function(req, res){
-//     console.log("fetch data",req.body);
-//     return res.redirect('back');
-// }
-
 const mongoose = require('mongoose');
-
 
 const todoSchema = new mongoose.Schema({
     description:{

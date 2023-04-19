@@ -1,16 +1,3 @@
-// var data = [
-//     {
-//         description:"go to gym",
-//         category: "personal",
-//         date: "12/23/2023"
-//     },
-//     {
-//         description:"go to school",
-//         category: "personal",
-//         date: "10/20/2023"
-//     }
-
-// ]
 const todolist= require('../model/todo');
 
 module.exports.home = async function (req, res) {
@@ -25,8 +12,6 @@ module.exports.home = async function (req, res) {
     .catch((err)=>{
         console.log(":::::",err);
     })
-
- 
 }
 
 //this need to be in todo_controller
@@ -52,9 +37,9 @@ module.exports.todo = function(req, res){
     .catch((err)=>{
         console.log(`error while creating data, ${err} `);
     })
-    // return res.redirect('back');
 };
 
+// for deleting todo tasks
 module.exports.deleteTodo = function(req, res){
 
     console.log(req.query);
@@ -72,6 +57,7 @@ module.exports.deleteTodo = function(req, res){
              console.log(`cannot delete, ${err}`); 
         });
     }
+    
     setTimeout(function(){
         return res.redirect('back');
     },1000);

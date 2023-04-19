@@ -38,13 +38,13 @@
 
                 <div class="description-date">
 
-                    <label for="date">due date</label>
+                    <label for="date">Due date</label>
                     <input type="date" name="date" id="date">
                 </div>
             </div>
 
 
-            <button type="submit">
+            <button type="submit" class="add_btn">
                 <i class="fa-solid fa-plus fa-beat"></i>
                 Add Task
             </button>
@@ -53,18 +53,15 @@
 
         <form action="/delete_task" method="get">
 
-            <!-- <a href="/delete_task/?id=<%= 4654 %>"> -->
-                <button type="submit">
-                    <i class="fa-solid fa-xmark"></i>
-                    Delete Tasks
-                </button>
-            <!-- </a> -->
-
+            <button type="submit" class="delete_btn">
+                <i class="fa-solid fa-xmark"></i>
+                Delete Tasks
+            </button>
 
             <div class="tasks-section">
 
                 <ul>
-                <% for(let i of todo_data){ %>
+                    <% for(let i of todo_data){ %>
                         <li>
                             <div class="todo_list" id="<%= i._id %>">
 
@@ -76,7 +73,7 @@
                                         <%= i.description %>
                                     </label>
 
-                                    <label  for="<%= i._id %>">
+                                    <label for="<%= i._id %>">
                                         <i class="fa-regular fa-calendar-days"></i>
                                         &nbsp;&nbsp;
                                         <%= i.date %>
@@ -89,7 +86,7 @@
                             </div>
                         </li>
                         <% } %>
-                    </ul>
+                </ul>
             </div>
 
         </form>
